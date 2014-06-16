@@ -20,17 +20,16 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
     
     // initialize W, H
     init_genrand(time(NULL));
-    int rand_max = 100;
     // W(n_rows, n_class)
     for(i = 0;i < n_rows;i++){
         for(j = 0;j < n_class;j++){
-            W[i][j] = (double)(genrand_int32() % rand_max) + 1;
+            W[i][j] = genrand_real3();
         }
     }
     // H(n_class, n_cols)
     for(i = 0;i < n_class;i++){
         for(j = 0;j < n_cols;j++){
-            H[i][j] = (double)(genrand_int32() % rand_max) + 1;
+            H[i][j] = genrand_real3();
         }
     }
     
@@ -44,26 +43,41 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
             }
         }
     }
-
-
+    
+    
     FILE *ofp;
     if((ofp = fopen("ISD.txt","w")) == NULL){
         fprintf(stderr,"nmf_learn:: cannnot open output file.\n");
         exit(1);
     }
     fprintf(ofp,"STEP\tISD\n");
-
+    
     
     // iteration
     int it;
     double numerator;
     double denominator;
     double isd;
-    double wh;
     double prev_isd;
     double converge_threshold = 1.0e-12;
     double epsilon = 1.0e-12;
     for(it = 0;it < maxiter;it++){
+        // compute IS divergence
+        isd = 0.0;
+        for(i = 0;i < n_rows;i++){
+            for(j = 0;j < n_cols;j++){
+                isd += ((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - log((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - 1.0;
+            }
+        }
+        fprintf(stdout,"\nIS Divergence = %.8f\n",isd);
+        fprintf(ofp,"%d\t%.8f\n",it,isd);
+        if((it != 0) && ((prev_isd*1.05) < isd)) break;
+        if((it != 0) && (fabs(prev_isd - isd) < converge_threshold)){
+            printf("converged.\n");
+            break;
+        }
+        prev_isd = isd;
+    
         printf("iteration %2d / %3d..\n",it+1,maxiter);
         fflush(stdout);
         // update rules for minimizing IS divergence
@@ -88,6 +102,15 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                         W[i][k] = W[i][k] * sqrt(numerator / epsilon);
                     }
                     if(W[i][k] < epsilon) W[i][k] = 0.0;
+                }
+            }
+        }
+        // update X_hat
+        for(i = 0;i < n_rows;i++){
+            for(j = 0;j < n_cols;j++){
+                X_hat[i][j] = 0.0;
+                for(k = 0;k < n_class;k++){
+                    X_hat[i][j] += W[i][k] * H[k][j];
                 }
             }
         }
@@ -124,33 +147,6 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                 }
             }
         }
-        // compute IS divergence
-        isd = 0.0;
-        for(i = 0;i < n_rows;i++){
-            for(j = 0;j < n_cols;j++){
-                wh = 0.0;
-                for(k = 0;k < n_class;k++){
-                    wh += W[i][k] * H[k][j];
-                }
-                if((wh < epsilon) && (data[i][j] < epsilon)){
-                    isd += 0.0;
-                }else if(wh < epsilon){
-                    isd += (data[i][j] / epsilon) - log(data[i][j] / epsilon) - 1.0;
-                }else if(data[i][j] < epsilon){
-                    isd += (epsilon / wh) - log(epsilon / wh) - 1.0;
-                }else{
-                    isd += (data[i][j] / wh) - log(data[i][j] / wh) - 1.0;
-                }
-            }
-        }
-        fprintf(stdout,"\nIS Divergence = %.8f\n",isd);
-        fprintf(ofp,"%d\t%.8f\n",it,isd);
-        if((it != 0) && (prev_isd < isd)) break;
-        if((it != 0) && (fabs(prev_isd - isd) < converge_threshold)){
-            printf("converged.\n");
-            break;
-        }
-        prev_isd = isd;
     }
     fclose(ofp);
 }

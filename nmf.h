@@ -8,7 +8,7 @@
 #include "feature.h"
 
 #define CLASS_DEFAULT 10
-#define MAXITER_DEFAULT 1000
+#define MAXITER_DEFAULT 100
 
 void usage(void);
 
