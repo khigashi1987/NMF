@@ -88,13 +88,8 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                     numerator = 0.0;
                     denominator = 0.0;
                     for(j = 0;j < n_cols;j++){
-                        if(X_hat[i][j] == 0.0){
-                            numerator += (data[i][j] * H[k][j] / epsilon * epsilon);
-                            denominator += H[k][j] / epsilon;
-                        }else{
-                            numerator += (data[i][j] * H[k][j]) / (X_hat[i][j] * X_hat[i][j]);
-                            denominator += H[k][j] / X_hat[i][j];
-                        }
+                        numerator += ((data[i][j]+epsilon) * H[k][j]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
+                        denominator += H[k][j] / (X_hat[i][j]+epsilon);
                     }
                     if(denominator != 0.0){
                         W[i][k] = W[i][k] * sqrt(numerator / denominator);
@@ -121,13 +116,8 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                     numerator = 0.0;
                     denominator = 0.0;
                     for(i = 0;i < n_rows;i++){
-                        if(X_hat[i][j] == 0.0){
-                            numerator += (data[i][j] * W[i][k]) / (epsilon * epsilon);
-                            denominator += W[i][k] / epsilon;
-                        }else{
-                            numerator += (data[i][j] * W[i][k]) / (X_hat[i][j] * X_hat[i][j]);
-                            denominator += W[i][k] / X_hat[i][j];
-                        }
+                        numerator += ((data[i][j]+epsilon) * W[i][k]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
+                        denominator += W[i][k] / (X_hat[i][j]+epsilon);
                     }
                     if(denominator != 0.0){
                         H[k][j] = H[k][j] * sqrt(numerator / denominator);
