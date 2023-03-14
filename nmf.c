@@ -8,6 +8,7 @@
 #include "nmf.h"
 #include "feature.h"
 #include "learn.h"
+#include "timer.h"
 
 int main(int argc, char **argv){
     table data;
@@ -15,6 +16,7 @@ int main(int argc, char **argv){
     int nclass = CLASS_DEFAULT;
     int maxiter = MAXITER_DEFAULT;
     int i,j;
+    double time;
     
     while((c = getopt(argc, argv, "N:I:h")) != -1){
         switch(c){
@@ -48,8 +50,17 @@ int main(int argc, char **argv){
     }
     
     // run NMF
+    initialize_timer ();
+    start_timer();
+
     nmf_learn(data.matrix, data.n_rows, data.n_cols, nclass, W, H, maxiter);
     
+   /* stop timer */
+   stop_timer();
+   time=elapsed_time ();
+
+   printf("elapsed time = %lf (sec)\n", time);
+       
     // output results
     FILE *wfp, *hfp;
     if((wfp = fopen("W.dat","w")) == NULL){

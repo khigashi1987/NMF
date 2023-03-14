@@ -23,3 +23,8 @@ Below are the instructions for installing this application.
    `./nmf -N 2 -I 50 ../iris_test_data.data`  
    This will create two files, one for W and one H named W.dat and H.dat respectively.  
    
+2. To run test.sh script, run the following command.
+   `./test.sh 2 50 iris_test_data.data 0`
+   First Param is N, second is Iterations, third is data file name and last is 0=no threading, 1=threading
+   This will generate or add to a test_output.txt file with results for 7 runs of each of 1-8 threads (if threading is activated)
+   Default values are 2, 50, iris_test_data.data and 0 if none are passed in.
