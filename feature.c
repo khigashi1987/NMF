@@ -167,3 +167,30 @@ static void get_data(FILE *fp, table *data){
         i++;
     }
 }
+
+table invert_matrix(table data) {
+    //make rows and row headers columns and column headers
+    table matrix;
+    matrix.n_rows = data.n_cols;
+    matrix.n_cols = data.n_rows;
+    matrix.row_headers = (char **)calloc(matrix.n_rows,sizeof(char *));
+    matrix.col_headers = (char **)calloc(matrix.n_cols,sizeof(char *));
+    matrix.matrix = (double **)calloc(matrix.n_rows,sizeof(double *));
+    int i,j;
+    for(i = 0;i < matrix.n_rows;i++){
+        matrix.row_headers[i] = (char *)calloc(WORDSIZE,sizeof(char));
+        strcpy(matrix.row_headers[i],data.col_headers[i]);
+        matrix.matrix[i] = (double *)calloc(matrix.n_cols,sizeof(double));
+    }
+    for(i = 0;i < matrix.n_cols;i++){
+        matrix.col_headers[i] = (char *)calloc(WORDSIZE,sizeof(char));
+        strcpy(matrix.col_headers[i],data.row_headers[i]);
+    }
+    for(i = 0;i < matrix.n_rows;i++){
+        for(j = 0;j < matrix.n_cols;j++){
+            matrix.matrix[i][j] = data.matrix[j][i];
+        }
+    }
+
+    return matrix;
+}

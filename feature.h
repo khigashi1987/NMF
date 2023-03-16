@@ -15,5 +15,6 @@ typedef struct{
 }table;
 
 extern table feature_matrix(char *filename);
+extern table invert_matrix(table data);
 extern void free_feature_matrix(double **matrix);
 #endif

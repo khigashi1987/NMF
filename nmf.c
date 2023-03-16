@@ -9,19 +9,22 @@
 #include "feature.h"
 #include "learn.h"
 #include "timer.h"
+#include "testMatricies.h"
 
 int main(int argc, char **argv){
     table data;
     char c;
     int nclass = CLASS_DEFAULT;
     int maxiter = MAXITER_DEFAULT;
+    float threshold = THRESHOLD_DEFAULT;
     int i,j;
     double time;
     
-    while((c = getopt(argc, argv, "N:I:h")) != -1){
+    while((c = getopt(argc, argv, "N:I:T:h")) != -1){
         switch(c){
             case 'N': nclass = atoi(optarg); break;
             case 'I': maxiter = atoi(optarg); break;
+            case 'T': threshold = atof(optarg); break;
             case 'h': usage(); break;
             default: usage(); break;
         }
@@ -36,7 +39,11 @@ int main(int argc, char **argv){
     fprintf(stdout,"Number of words      %d\n",data.n_rows);
     fprintf(stdout,"Number of samples    %d\n",data.n_cols);
     fprintf(stdout,"Number of classes    %d\n",nclass);
-    
+
+    // run NMF
+    initialize_timer ();
+    start_timer();
+
     // allocate parameters
     double **W;
     W = (double **)calloc(data.n_rows,sizeof(double *));
@@ -49,10 +56,6 @@ int main(int argc, char **argv){
         H[i] = (double *)calloc(data.n_cols,sizeof(double));
     }
     
-    // run NMF
-    initialize_timer ();
-    start_timer();
-
     nmf_learn(data.matrix, data.n_rows, data.n_cols, nclass, W, H, maxiter);
     
    /* stop timer */
@@ -60,7 +63,7 @@ int main(int argc, char **argv){
    time=elapsed_time ();
 
    printf("elapsed time = %lf (sec)\n", time);
-       
+
     // output results
     FILE *wfp, *hfp;
     if((wfp = fopen("W.dat","w")) == NULL){
@@ -98,6 +101,11 @@ int main(int argc, char **argv){
         fprintf(hfp,"\n");
     }
 
+    // close files
+    fclose(wfp);
+    fclose(hfp);
+
+    compareMatricies(argv[optind], "W.dat", "H.dat", threshold);
     exit(0);
 }
 
