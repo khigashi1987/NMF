@@ -1,0 +1,9 @@
+.depend
+H.dat
+ISD.txt
+W.dat
+feature.o
+learn.o
+nmf
+nmf.o
+timer.o
