@@ -69,7 +69,16 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                 isd += ((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - log((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - 1.0;
             }
         }
-        fprintf(stdout,"\nIS Divergence = %.8f\n",isd);
+       // only ouput this value every 100 iterations
+        if(it % 500 == 0){
+            fprintf(stdout,"\nIS Divergence = %.8f\n",isd);
+            // printf("iteration %2d / %3d..\n",it+1,maxiter);
+            fflush(stdout);
+        }
+        if(it == maxiter - 1) {
+            fprintf(stdout,"\nIS Divergence = %.8f\n",isd);
+            fflush(stdout);
+        }
         fprintf(ofp,"%d\t%.8f\n",it,isd);
         if((it != 0) && ((prev_isd*1.05) < isd)) break;
         if((it != 0) && (fabs(prev_isd - isd) < converge_threshold)){
@@ -78,8 +87,6 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
         }
         prev_isd = isd;
     
-        printf("iteration %2d / %3d..\n",it+1,maxiter);
-        fflush(stdout);
         // update rules for minimizing IS divergence
         // update W
         for(i = 0;i < n_rows;i++){
