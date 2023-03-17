@@ -45,7 +45,7 @@ third_second=$(( $DIMENSION1 / 3 * 2 ))
 
 for (( i=0 ; i<$DIMENSION1 ; i+=1)); do
   # Add row header based on row position in data
-  if [[ $i < $third_first ]]; then
+  if [[ $i -lt $third_first ]]; then
     printf "variant_1" >> $RESULT_FILE
     for (( n=1 ; n<=$DIMENSION2 ; n+=1 )); do
       R=$(($(($RANDOM%$RANGE1))+$RANGE1_X))
@@ -53,7 +53,7 @@ for (( i=0 ; i<$DIMENSION1 ; i+=1)); do
       printf "\t$new_r" >> $RESULT_FILE
     done
     printf "\n" >> $RESULT_FILE
-  elif [[ $i < $third_second ]]; then
+  elif [[ $i -lt $third_second ]]; then
     printf "variant_2" >> $RESULT_FILE
     for (( n=1 ; n<=$DIMENSION2 ; n+=1 )); do
       R=$(($(($RANDOM%$RANGE2))+$RANGE2_X))
