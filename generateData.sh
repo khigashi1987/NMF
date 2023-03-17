@@ -7,6 +7,17 @@ DIMENSION1=${ARGS[0]}
 DIMENSION2=${ARGS[1]}
 RESULT_FILE=${ARGS[2]}
 
+RANGE1_X=1
+RANGE1_Y=3
+RANGE2_X=20
+RANGE2_Y=24
+RANGE3_X=37
+RANGE3_Y=41
+
+RANGE1=$(($RANGE1_Y-$RANGE1_X+1))
+RANGE2=$(($RANGE2_Y-$RANGE2_X+1))
+RANGE3=$(($RANGE3_Y-$RANGE3_X+1))
+
 if [[ $ARGS_LENGTH < 3 ]]; then
   echo "Incorrect number of arguments provided"
   echo "Usage -- ./generateData.sh {n_units_in_y_dimension} {m_units_in_x_dimension} {result_file_name.extension}"
@@ -36,17 +47,28 @@ for (( i=0 ; i<$DIMENSION1 ; i+=1)); do
   # Add row header based on row position in data
   if [[ $i < $third_first ]]; then
     printf "variant_1" >> $RESULT_FILE
+    for (( n=1 ; n<=$DIMENSION2 ; n+=1 )); do
+      R=$(($(($RANDOM%$RANGE1))+$RANGE1_X))
+      new_r=$((($R+$n)*$n))
+      printf "\t$new_r" >> $RESULT_FILE
+    done
+    printf "\n" >> $RESULT_FILE
   elif [[ $i < $third_second ]]; then
     printf "variant_2" >> $RESULT_FILE
+    for (( n=1 ; n<=$DIMENSION2 ; n+=1 )); do
+      R=$(($(($RANDOM%$RANGE2))+$RANGE2_X))
+      new_r=$((($R+$n)*$n))
+      printf "\t$new_r" >> $RESULT_FILE
+    done
+    printf "\n" >> $RESULT_FILE
   else
     printf "variant_3" >> $RESULT_FILE
+    for (( n=1 ; n<=$DIMENSION2 ; n+=1 )); do
+      R=$(($(($RANDOM%$RANGE3))+$RANGE3_X))
+      new_r=$((($R+$n)*$n))
+      printf "\t$new_r" >> $RESULT_FILE
+    done
+    printf "\n" >> $RESULT_FILE
   fi
 
-  # Add randomly generated numbers to matrix
-  for (( n=0 ; n<$DIMENSION2 ; n+=1 )); do
-    printf "\t$RANDOM" >> $RESULT_FILE
-  done
-
-  # Add new line at the end of each row
-  printf "\n" >> $RESULT_FILE
 done
