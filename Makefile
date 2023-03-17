@@ -1,7 +1,7 @@
 PROGRAM	= nmf
 CC	= gcc
 CFLAGS	= -O3
-SRCS	= timer.c nmf.c feature.c learn.c
+SRCS	= timer.c nmf.c feature.c learn.c testMatricies.c
 OBJS	= $(SRCS:.c=.o)
 HEADERS	= $(SRCS:.c=.h)
 LDFLAGS	= -lm

@@ -9,6 +9,7 @@
 
 #define CLASS_DEFAULT 10
 #define MAXITER_DEFAULT 2000
+#define THRESHOLD_DEFAULT 0.5
 
 void usage(void);
 
