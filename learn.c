@@ -12,14 +12,14 @@
 void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, double **H, int maxiter){
     double **X_hat;
     int i,j;
-    
+
     X_hat = (double **)calloc(n_rows,sizeof(double *));
     for(i = 0;i < n_rows;i++){
         X_hat[i] = (double *)calloc(n_cols,sizeof(double));
     }
-    
+
     // initialize W, H
-    init_genrand(time(NULL));
+    init_genrand(2468);
     // W(n_rows, n_class)
     for(i = 0;i < n_rows;i++){
         for(j = 0;j < n_class;j++){
@@ -32,7 +32,7 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
             H[i][j] = genrand_real3();
         }
     }
-    
+
     // X_hat = W x H
     int k;
     for(i = 0;i < n_rows;i++){
@@ -43,16 +43,16 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
             }
         }
     }
-    
-    
+
+
     FILE *ofp;
     if((ofp = fopen("ISD.txt","w")) == NULL){
         fprintf(stderr,"nmf_learn:: cannnot open output file.\n");
         exit(1);
     }
     fprintf(ofp,"STEP\tISD\n");
-    
-    
+
+
     // iteration
     int it;
     double numerator;
@@ -86,7 +86,7 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
             break;
         }
         prev_isd = isd;
-    
+
         // update rules for minimizing IS divergence
         // update W
         for(i = 0;i < n_rows;i++){
