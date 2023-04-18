@@ -5,13 +5,25 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <sys/time.h>
 #include "MT.h"
 #include "learn.h"
 #include "feature.h"
 
+double get_time() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (double)tv.tv_sec + (double)tv.tv_usec / 1000000.0;
+}
+
 void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, double **H, int maxiter){
     double **X_hat;
     int i,j;
+    double flops = 0;
+    double gflops = 0;
+
+    // get a start time for gflop calculation
+    double start_time = get_time();
 
     X_hat = (double **)calloc(n_rows,sizeof(double *));
     for(i = 0;i < n_rows;i++){
@@ -24,12 +36,14 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
     for(i = 0;i < n_rows;i++){
         for(j = 0;j < n_class;j++){
             W[i][j] = genrand_real3();
+            flops++;
         }
     }
     // H(n_class, n_cols)
     for(i = 0;i < n_class;i++){
         for(j = 0;j < n_cols;j++){
             H[i][j] = genrand_real3();
+            flops++;
         }
     }
 
@@ -40,6 +54,7 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
             X_hat[i][j] = 0.0;
             for(k = 0;k < n_class;k++){
                 X_hat[i][j] += W[i][k] * H[k][j];
+                flops+=2; // 2 flops - 1 multiply and 1 add
             }
         }
     }
@@ -67,6 +82,7 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
         for(i = 0;i < n_rows;i++){
             for(j = 0;j < n_cols;j++){
                 isd += ((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - log((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - 1.0;
+                flops+=4; // 4 flops - 2 divides, 1 log, and 1 subtract
             }
         }
        // only ouput this value every 100 iterations
@@ -97,11 +113,14 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                     for(j = 0;j < n_cols;j++){
                         numerator += ((data[i][j]+epsilon) * H[k][j]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
                         denominator += H[k][j] / (X_hat[i][j]+epsilon);
+                        flops += 6; // 6 flops - 2 divides, 1 multiply, 1 add, 1 subtract, and 1 divide
                     }
                     if(denominator != 0.0){
                         W[i][k] = W[i][k] * sqrt(numerator / denominator);
+                        flops += 2; // 2 flops - 1 multiply and 1 divide
                     }else{
                         W[i][k] = W[i][k] * sqrt(numerator / epsilon);
+                        flops += 2; // 2 flops - 1 multiply and 1 divide
                     }
                     if(W[i][k] < epsilon) W[i][k] = 0.0;
                 }
@@ -113,6 +132,7 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                 X_hat[i][j] = 0.0;
                 for(k = 0;k < n_class;k++){
                     X_hat[i][j] += W[i][k] * H[k][j];
+                    flops+=2; // 2 flops - 1 multiply and 1 add
                 }
             }
         }
@@ -125,11 +145,14 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                     for(i = 0;i < n_rows;i++){
                         numerator += ((data[i][j]+epsilon) * W[i][k]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
                         denominator += W[i][k] / (X_hat[i][j]+epsilon);
+                        flops += 6; // 6 flops - 2 divides, 1 multiply, 1 add, 1 subtract, and 1 divide
                     }
                     if(denominator != 0.0){
                         H[k][j] = H[k][j] * sqrt(numerator / denominator);
+                        flops += 2; // 2 flops - 1 multiply and 1 divide
                     }else{
                         H[k][j] = H[k][j] * sqrt(numerator / epsilon);
+                        flops += 2; // 2 flops - 1 multiply and 1 divide
                     }
                     if(H[k][j] < epsilon) H[k][j] = 0.0;
                 }
@@ -141,9 +164,19 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                 X_hat[i][j] = 0.0;
                 for(k = 0;k < n_class;k++){
                     X_hat[i][j] += W[i][k] * H[k][j];
+                    flops+=2; // 2 flops - 1 multiply and 1 add
                 }
             }
         }
     }
     fclose(ofp);
+
+    // get a stop time for gflop calculation
+    double stop_time = get_time();
+
+    // calculate the number of gflops
+    gflops = flops / (stop_time - start_time) / 1.0e9;
+
+    // ouput flops in a print statement
+    printf("GFLOPS = %f \n",gflops);
 }
