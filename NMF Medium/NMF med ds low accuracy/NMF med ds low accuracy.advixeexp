@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <is_snapshot type="bool">true</is_snapshot>
+ <rdmgr>
+  <timestamp type="u64_t">1682272856</timestamp>
+  <hostname type="string">denver</hostname>
+  <os type="string">linux</os>
+  <product type="string">Intel® Advisor 2021.3</product>
+  <buildNumber type="s32_t">609871</buildNumber>
+  <logicalCPUCount type="s32_t">20</logicalCPUCount>
+  <physicalCoreCount type="s32_t">12</physicalCoreCount>
+  <processorPackageCount type="s32_t">1</processorPackageCount>
+  <CPUFrequency type="s64_t">3600000000</CPUFrequency>
+  <CPUFamily type="s32_t">6</CPUFamily>
+  <CPUModel type="s32_t">151</CPUModel>
+  <CPUStepping type="s32_t">2</CPUStepping>
+  <CPUBrandName type="string">12th Gen Intel(R) Core(TM) i7-12700K</CPUBrandName>
+  <isa type="string">avx2</isa>
+  <outputDirectory type="string">/s/chopin/k/grad/kriv/intel/advixe/projects/NMF Medium/NMF med ds low accuracy</outputDirectory>
+ </rdmgr>
+</root>

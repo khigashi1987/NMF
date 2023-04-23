@@ -1,0 +1,95 @@
+8 [140188087064448] INFO perfrun.launcher <> - Launcher main begin
+22 [140188087064448] INFO perfrun.launcher <> - MessageCatalogInit finished
+22 [140188087064448] INFO perfrun.launcher <> - Launcher instance created
+22 [140188087064448] INFO perfrun.launcher <> - argc = 7; cmdline = /usr/local/intel/oneapi/advisor/2021.3.0/bin64/advixe-runss --ui-output-format xml --ui-output-fd 88 --option-file /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/hs002/config/runss.options 
+74 [140188087064448] INFO perfrun.launcher <> - create msngr2::ICliToolContext
+74 [140188087064448] INFO perfrun.launcher <> - create file finder object
+74 [140188087064448] INFO perfrun.launcher <> - create a result directory: pattern = /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/hs002 pid = 4294967295
+80 [140188087064448] INFO perfrun.sdk <> - checked that the directory /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/hs002 is a local directory
+81 [140188087064448] INFO perfrun.sdk <> - the directory /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/hs002 is located on a share or its FS ID is unknown 26985
+81 [140188087064448] INFO perfrun.sdk <> - checked that the directory /tmp/advixe-tmp-kriv is a local directory
+81 [140188087064448] INFO perfrun.sdk <> - the directory /tmp/advixe-tmp-kriv is a local directory with FS type ID 16914836
+81 [140188087064448] INFO perfrun.launcher <> - Create a local result directory /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283 due to the user result path /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/hs002 is located on a share
+81 [140188087064448] INFO perfrun.launcher <> - create data directory = /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0
+84 [140188087064448] INFO perfrun.launcher <> - create data directory = /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/hs002/data.0
+87 [140188087064448] INFO perfrun.launcher <> - Creating the master collection flag
+93 [140188087064448] INFO perfrun.launcher <> - Done creating the master collection flag
+93 [140187924543232] INFO perfrun.launcher <> - plugin [remoteplug] was disabled because it doesn't support the given collection type.
+94 [140187924543232] INFO perfrun.sdk <> - Allocating TMU :/tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0/systemcollector-378162-denver.sc
+94 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+94 [140187924543232] INFO perfrun.launcher <> - plugin [gpu] was disabled because it doesn't support the given collection type.
+94 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+94 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+94 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+94 [140187924543232] INFO perfrun.mrte <> - system-wide mode is 0
+94 [140187924543232] INFO perfrun.mrte <> - Getting  mrte profiling environment ...
+182 [140187924543232] INFO perfrun.mrte <> - INTEL_MRTE_DATA_DIR=/tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0
+182 [140187924543232] INFO perfrun.mrte <> - INTEL_MRTE_HOST_NAME=denver
+182 [140187924543232] INFO perfrun.mrte <> - Data directory: /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0
+182 [140187924543232] INFO perfrun.mrte <> - Mrte plugin is initialized
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.tpss <> - initialize tpss controller
+182 [140187924543232] INFO perfrun.tpss <> - configure collection mode: value = cpu:stack
+182 [140187924543232] INFO perfrun.tpss <> - default obj-size-min=1024
+182 [140187924543232] INFO perfrun.tpss <> - default hash-table-size=0
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140187924543232] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /usr/local/intel/oneapi/advisor/2021.3.0/lib32/runtime:/usr/local/intel/oneapi/advisor/2021.3.0/lib64/runtime:/usr/local/cuda/latest/lib64:/usr/lib64/openmpi/lib:/usr/local/cuda/11.0/targets/x86_64-linux/lib
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY32 = /usr/local/intel/oneapi/advisor/2021.3.0/lib32/runtime/libittnotify_collector.so
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY64 = /usr/local/intel/oneapi/advisor/2021.3.0/lib64/runtime/libittnotify_collector.so
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: INTEL_ITTNOTIFY_GROUPS = 
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER32 = /usr/local/intel/oneapi/advisor/2021.3.0/lib32/runtime/libittnotify_collector.so
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER64 = /usr/local/intel/oneapi/advisor/2021.3.0/lib64/runtime/libittnotify_collector.so
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: VS_PROFILER = libittnotify_collector.so
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: OMP_TOOL_LIBRARIES = /usr/local/intel/oneapi/advisor/2021.3.0/lib32/runtime/libittnotify_collector.so:/usr/local/intel/oneapi/advisor/2021.3.0/lib64/runtime/libittnotify_collector.so
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: ENABLE_JITPROFILING = 1
+182 [140188087064448] INFO perfrun.launcher <> - set environment variable: CL_CONFIG_USE_VTUNE = True
+183 [140188087064448] INFO perfrun.launcher <> - set environment variable: KMP_FORKJOIN_FRAMES = 0
+183 [140188087064448] INFO perfrun.launcher <> - set environment variable: KMP_FORKJOIN_FRAMES_MODE = 0
+183 [140188087064448] INFO perfrun.launcher <> - set environment variable: OMP_TOOL = disabled
+183 [140188087064448] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_DATA_DIR = /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0
+183 [140188087064448] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_HOST_NAME = denver
+183 [140188087064448] INFO perfrun.launcher <> - RpcServer: run RPC server to handle requests
+185 [140188087064448] INFO perfrun.launcher <> - Launcher: command line to start before modification = /s/chopin/k/grad/kriv/CS575/NMF/nmf -N 3 -I 10000 -T 1 ./test_data/small_data.dat
+185 [140188087064448] INFO perfrun.launcher <> - Launcher: command line to start after modification = /usr/local/intel/oneapi/advisor/2021.3.0/bin64/pin -error_file /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0/pinerr.tpsslog -detach_reattach -follow_execv -tool_load_option deepbind -t64 /usr/local/intel/oneapi/advisor/2021.3.0/lib64/libtpsstool.so -t /usr/local/intel/oneapi/advisor/2021.3.0/lib32/libtpsstool.so -server_name tpss_ipc.378162 -prd_dir /usr/local/intel/oneapi/advisor/2021.3.0 -- /s/chopin/k/grad/kriv/CS575/NMF/nmf -N 3 -I 10000 -T 1 ./test_data/small_data.dat
+185 [140188087064448] INFO perfrun.launcher <> - ProcessCreator object was created
+186 [140188087064448] INFO perfrun.launcher <> - Launcher: the process was started in suspend mode
+198 [140187924543232] WARN perfrun.system <> - Could not do anything with /sys/kernel/debug/kvm: boost::filesystem::status: Permission denied: "/sys/kernel/debug/kvm", at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:797
+199 [140187924543232] WARN perfrun.sdk <> - Failed to find xl binary on any of the system paths: /bin, /sbin, /usr/bin, /usr/sbin., at file: vcs/perfrun1/sdk/src/utils.cpp:197
+204 [140187924543232] INFO perfrun.vdso <> - Helper runtool '/usr/local/intel/oneapi/advisor/2021.3.0/bin32/advixe-runss -dump-vdso -r /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283 --tmp-dir /tmp/advixe-tmp-kriv' returned 1
+299 [140187924543232] INFO perfrun.vdso <> - Helper runtool '/usr/local/intel/oneapi/advisor/2021.3.0/bin64/advixe-runss -dump-vdso -r /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283 --tmp-dir /tmp/advixe-tmp-kriv' returned 0
+299 [140187924543232] INFO perfrun.itt <> - start itt controller for pid #378175
+299 [140187924543232] INFO perfrun.tpss <> - start tpss controller for pid #378175
+349 [140188087064448] INFO perfrun.launcher <> - Launcher: all plugins were started
+349 [140188087064448] INFO perfrun.launcher <> - DirectoryMonitor object was created
+349 [140188087064448] INFO perfrun.launcher <> - DirectoryMonitor: a callback was added
+349 [140188087064448] INFO perfrun.launcher <> - DirectoryMonitor was started with pingTime = 1000
+349 [140188087064448] INFO perfrun.launcher <> - DeadlineTimer is going to be constructed
+349 [140188087064448] INFO perfrun.launcher <> - DeadlineTimer: a callback was added
+355 [140188087064448] INFO perfrun.launcher <> - Launcher: resume the profiled application and  wait its termination or stop command
+998 [140188087064448] INFO perfrun.launcher <> - Launcher: the profiled application was terminated  with exit code = 0
+1004 [140187924543232] INFO perfrun.itt <> - stop itt controller
+1004 [140187924543232] INFO perfrun.itt <> - detach itt controller
+1004 [140187924543232] INFO perfrun.tpss <> - stop tpss controller
+1004 [140187924543232] INFO perfrun.sdk <> - De-allocating TMU: /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0/systemcollector-378162-denver.sc
+1004 [140187924543232] INFO perfrun.system <> - closed the system trace file: /tmp/advixe-tmp-kriv/advixe-res-378162-551611259834283/data.0/systemcollector-378162-denver.sc
+1004 [140188087064448] INFO perfrun.launcher <> - Launcher: all plugins were stopped.
+1004 [140188087064448] INFO perfrun.launcher <> - DeadlineTimer is going to be destroyed
+1004 [140188087064448] INFO perfrun.launcher <> - DeadlineTimer was destroyed
+1004 [140188087064448] INFO perfrun.launcher <> - DirectoryMonitor object was destroyed
+1004 [140188087064448] WARN perfrun.launcher <> - Stop command is ignored because it is received when collection is already stopped, at file: vcs/perfrun1/launcher/src/command_handler.cpp:212
+1029 [140188087064448] INFO perfrun.launcher <> - Application exit code: 0
+1029 [140188087064448] INFO perfrun.launcher <> - Exit code: 0

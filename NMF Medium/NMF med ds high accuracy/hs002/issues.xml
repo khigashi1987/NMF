@@ -1,0 +1,823 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<bag xmlns:boolean="http://www.w3.org/2001/XMLSchema#boolean" xmlns:float="http://www.w3.org/2001/XMLSchema#float" xmlns:int="http://www.w3.org/2001/XMLSchema#int" xmlns:unsignedInt="http://www.w3.org/2001/XMLSchema#unsignedInt" xmlns:unsignedLong="http://www.w3.org/2001/XMLSchema#unsignedLong" int:version="9">
+ <issues>
+  <issue>
+   <unsignedInt:flags>65</unsignedInt:flags>
+   <id>issue_libm_function</id>
+   <int:severity>3</int:severity>
+   <text>Math functions in the &lt;a href=&quot;https://software.intel.com/en-us/articles/intel-advisor-xe-2016-vectorization-advisor-glossary&quot;&gt;loop body&lt;/a&gt; may prevent compiler from effective loop vectorization. Improve performance by enabling vectorized math call(s). </text>
+   <title>Scalar math function call(s) present</title>
+   <attributes>
+    <float:severity>3</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>3</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_libsvml_gcc_c</id>
+     <text>Your application calls scalar instead of vectorized versions of math functions. To fix: Do all of the following: &lt;br/&gt; &lt;ul&gt; &lt;li&gt; Use the &lt;div class=&quot;inplace_sample&quot;&gt;-mveclibabi=svml&lt;/div&gt; compiler option to specify the Intel short vector math library ABI type for vector instrinsics.&lt;/li&gt; &lt;li&gt; Use the &lt;div class=&quot;inplace_sample&quot;&gt;-ftree-vectorize&lt;/div&gt; and &lt;div class=&quot;inplace_sample&quot;&gt;-funsafe-math-optimizations&lt;/div&gt; compiler options to enable vector math functions.&lt;/li&gt; &lt;li&gt; Use the &lt;div class=&quot;inplace_sample&quot;&gt;-L/path/to/intel/lib&lt;/div&gt; and &lt;div class=&quot;inplace_sample&quot;&gt;-lsvml&lt;/div&gt; compiler options to specify an SVML ABI-compatible library at link time.&lt;/li&gt; &lt;/ul&gt;
+&lt;br/&gt; &lt;b&gt;Example: &lt;/b&gt; &lt;br/&gt;
+&lt;div class=&quot;sample&quot;&gt;
+gcc program.c -O2 -ftree-vectorize -funsafe-math-optimizations -mveclibabi=svml -L/opt/intel/lib/intel64 -lm -lsvml -Wl,-rpath=/opt/intel/lib/intel64
+&lt;/div&gt;
+&lt;div class=&quot;sample&quot;&gt;
+#include &quot;math.h&quot;&lt;br/&gt;
+#include &quot;stdio.h&quot;&lt;br/&gt;
+#define N 100000&lt;br/&gt;
+&lt;br/&gt;
+int main()&lt;br/&gt;
+{&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;double angles[N], results[N];&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;int i;&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;srand(86456);&lt;br/&gt;
+&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;for (i = 0; i &lt; N; i++)&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;{&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;angles[i] = rand();&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;// the loop will be auto-vectorized&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;for (i = 0; i &lt; N; i++)&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;{&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;results[i] = cos(angles[i]);&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;return 0;&lt;br/&gt;
+}&lt;/div&gt; &lt;b&gt;Read More:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html&quot;&gt;GCC options&lt;/a&gt; &lt;li&gt;&lt;a href=&quot;https://software.intel.com/en-us/vectorization-resources-advisor&quot;&gt;Vectorization Resources for Intel&amp;reg; Advisor Users&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt; </text>
+     <title>Use the Intel short vector math library for vector intrinsics </title>
+     <attributes>
+      <float:confidence>3</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_libmvec_new_glibc_c</id>
+     <text>Your application calls scalar instead of vectorized versions of math functions. To fix: Do all of the following: &lt;br/&gt; &lt;ul&gt; &lt;li&gt; Upgrade the Glibc library to version &lt;div class=&quot;inplace_sample&quot;&gt;2.22&lt;/div&gt; or higher. It supports SIMD directives in OpenMP* 4.0 or higher.&lt;/li&gt; &lt;li&gt; Upgrade the GNU* gcc compiler to version &lt;div class=&quot;inplace_sample&quot;&gt;4.9&lt;/div&gt; or higher. It supports vectorized math function options.&lt;/li&gt; &lt;li&gt; Use the &lt;div class=&quot;inplace_sample&quot;&gt;-fopenmp&lt;/div&gt; and &lt;div class=&quot;inplace_sample&quot;&gt;-ffast-math&lt;/div&gt; compiler options to enable vector math functions.&lt;/li&gt; &lt;li&gt; Use appropriate OpenMP SIMD directives to enable vectorization.&lt;/li&gt; &lt;/ul&gt;
+&lt;b&gt;Note&lt;/b&gt;: Also use the &lt;div class=&quot;inplace_sample&quot;&gt;-I/path/to/glibc/install/include&lt;/div&gt; and &lt;div class=&quot;inplace_sample&quot;&gt;-L/path/to/glibc/install/lib&lt;/div&gt; compiler options if you have multiple Glibc libraries installed on the host.
+&lt;br/&gt; &lt;b&gt;Example: &lt;/b&gt; &lt;br/&gt;
+&lt;div class=&quot;sample&quot;&gt;
+gcc program.c -O2 -fopenmp -ffast-math -lrt -lm -mavx2 -I/opt/glibc-2.22/include -L/opt/glibc-2.22/lib -Wl,--dynamic-linker=/opt/glibc-2.22/lib/ld-linux-x86-64.so.2
+&lt;/div&gt;
+&lt;div class=&quot;sample&quot;&gt;
+#include &quot;math.h&quot;&lt;br/&gt;
+#include &quot;stdio.h&quot;&lt;br/&gt;
+#define N 100000&lt;br/&gt;
+&lt;br/&gt;
+int main()&lt;br/&gt;
+{&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;double angles[N], results[N];&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;int i;&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;srand(86456);&lt;br/&gt;
+&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;for (i = 0; i &lt; N; i++)&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;{&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;angles[i] = rand();&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+&lt;br/&gt;
+#pragma omp simd&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;for (i = 0; i &lt; N; i++)&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;{&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;results[i] = cos(angles[i]);&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+&lt;br/&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;return 0;&lt;br/&gt;
+}&lt;/div&gt; &lt;b&gt;Read More:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;https://sourceware.org/glibc/wiki/libmvec&quot;&gt;Glibc wiki/Libmvec&lt;/a&gt; &lt;li&gt;&lt;a href=&quot;https://software.intel.com/en-us/vectorization-resources-advisor&quot;&gt;Vectorization Resources for Intel&amp;reg; Advisor Users&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt; </text>
+     <title>Use a Glibc library with vectorized SVML functions </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>13</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mem" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>1032</unsignedInt:flags>
+     <id>rec_roofline_guidance_collect_callstacks</id>
+     <text>rec_roofline_guidance_collect_text</text>
+     <title>Collect FLOP data with callstacks </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_memory_bound</id>
+     <text>roofline_guidance_memory_bound_text</text>
+     <title>This loop is mostly memory bound </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <traits>Divisions</traits>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>1</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>13</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_irm_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mem" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_collect_callstacks</id>
+     <text>rec_roofline_guidance_collect_text</text>
+     <title>Collect FLOP data with callstacks </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_memory_bound</id>
+     <text>roofline_guidance_memory_bound_text</text>
+     <title>This loop is mostly memory bound </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <traits>Divisions</traits>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>1</int:limiting_roof>
+      <limiting_mem_level>L1</limiting_mem_level>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>13</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>issue_potential_vectorizability</id>
+   <int:severity>1</int:severity>
+   <text>&lt;b&gt;Cause: &lt;/b&gt; You are using a non-Intel compiler or an outdated Intel compiler. Nevertheless, it appears there are no issues preventing vectorization and vectorization may be profitable. </text>
+   <title>Compiler lacks sufficient information to vectorize loop </title>
+   <attributes>
+    <float:roofline_impact>1</float:roofline_impact>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_enable_autovectorization_c</id>
+     <text>You compiled with auto-vectorization disabled; enable auto-vectorization: &lt;ul&gt; &lt;li&gt;Intel compiler 14.x or below: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Microsoft Visual C++* compiler: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;GNU* gcc compiler, do one of the following: &lt;ul&gt; &lt;li&gt;Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Use the &lt;div class=&quot;inplace_sample&quot;&gt;ftree-vectorize&lt;/div&gt; compiler option &lt;/ul&gt; &lt;/ul&gt; </text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>16</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_memory_bound</id>
+     <text>roofline_guidance_mostly_memory_bound_text</text>
+     <title>This loop is mostly memory bound but may also be compute bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <traits>Divisions</traits>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>3</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>16</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_irm_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_compute_bound</id>
+     <text>roofline_guidance_mostly_compute_bound_text</text>
+     <title>This loop is mostly compute bound but may also be memory bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <traits>Divisions</traits>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>0</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>16</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>65</unsignedInt:flags>
+   <id>issue_div</id>
+   <int:severity>1</int:severity>
+   <text>div_issue_text</text>
+   <title>Unoptimized floating point operation processing possible</title>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_div_c</id>
+     <text>add_div_text</text>
+     <title>Enable the use of approximate division instructions </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>16</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="true" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_compute_bound</id>
+     <text>roofline_guidance_mostly_compute_bound_text</text>
+     <title>This loop is mostly compute bound but may also be memory bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>true</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <current_isa>SSE2</current_isa>
+      <best_isa>AVX2</best_isa>
+      <traits>Divisions, Unpacks</traits>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>0</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>19</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_irm_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="true" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_compute_bound</id>
+     <text>roofline_guidance_mostly_compute_bound_text</text>
+     <title>This loop is mostly compute bound but may also be memory bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>true</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <current_isa>SSE2</current_isa>
+      <best_isa>AVX2</best_isa>
+      <traits>Divisions, Unpacks</traits>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>0</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>19</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>issue_potential_vectorizability</id>
+   <int:severity>1</int:severity>
+   <text>&lt;b&gt;Cause: &lt;/b&gt; You are using a non-Intel compiler or an outdated Intel compiler. Nevertheless, it appears there are no issues preventing vectorization and vectorization may be profitable. </text>
+   <title>Compiler lacks sufficient information to vectorize loop </title>
+   <attributes>
+    <float:roofline_impact>1</float:roofline_impact>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_enable_autovectorization_c</id>
+     <text>You compiled with auto-vectorization disabled; enable auto-vectorization: &lt;ul&gt; &lt;li&gt;Intel compiler 14.x or below: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Microsoft Visual C++* compiler: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;GNU* gcc compiler, do one of the following: &lt;ul&gt; &lt;li&gt;Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Use the &lt;div class=&quot;inplace_sample&quot;&gt;ftree-vectorize&lt;/div&gt; compiler option &lt;/ul&gt; &lt;/ul&gt; </text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>20</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_compute_bound</id>
+     <text>roofline_guidance_mostly_compute_bound_text</text>
+     <title>This loop is mostly compute bound but may also be memory bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>0</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>20</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_irm_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_compute_bound</id>
+     <text>roofline_guidance_mostly_compute_bound_text</text>
+     <title>This loop is mostly compute bound but may also be memory bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>0</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>20</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>issue_potential_vectorizability</id>
+   <int:severity>1</int:severity>
+   <text>&lt;b&gt;Cause: &lt;/b&gt; You are using a non-Intel compiler or an outdated Intel compiler. Nevertheless, it appears there are no issues preventing vectorization and vectorization may be profitable. </text>
+   <title>Compiler lacks sufficient information to vectorize loop </title>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_enable_autovectorization_c</id>
+     <text>You compiled with auto-vectorization disabled; enable auto-vectorization: &lt;ul&gt; &lt;li&gt;Intel compiler 14.x or below: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Microsoft Visual C++* compiler: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;GNU* gcc compiler, do one of the following: &lt;ul&gt; &lt;li&gt;Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Use the &lt;div class=&quot;inplace_sample&quot;&gt;ftree-vectorize&lt;/div&gt; compiler option &lt;/ul&gt; &lt;/ul&gt; </text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>23</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>issue_potential_vectorizability</id>
+   <int:severity>1</int:severity>
+   <text>&lt;b&gt;Cause: &lt;/b&gt; You are using a non-Intel compiler or an outdated Intel compiler. Nevertheless, it appears there are no issues preventing vectorization and vectorization may be profitable. </text>
+   <title>Compiler lacks sufficient information to vectorize loop </title>
+   <attributes>
+    <float:roofline_impact>1</float:roofline_impact>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_enable_autovectorization_c</id>
+     <text>You compiled with auto-vectorization disabled; enable auto-vectorization: &lt;ul&gt; &lt;li&gt;Intel compiler 14.x or below: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Microsoft Visual C++* compiler: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;GNU* gcc compiler, do one of the following: &lt;ul&gt; &lt;li&gt;Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Use the &lt;div class=&quot;inplace_sample&quot;&gt;ftree-vectorize&lt;/div&gt; compiler option &lt;/ul&gt; &lt;/ul&gt; </text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>26</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_compute_bound</id>
+     <text>roofline_guidance_mostly_compute_bound_text</text>
+     <title>This loop is mostly compute bound but may also be memory bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>0</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>26</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>321</unsignedInt:flags>
+   <id>issue_irm_roofline_guidance</id>
+   <int:severity>2</int:severity>
+   <text/>
+   <title>issue_roofline_guidance_title</title>
+   <attributes>
+    <float:severity>2</float:severity>
+   </attributes>
+   <parameters boolean:is_vectorized="false" zone="mix" ops_type="float"/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>2</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_roofline_guidance_mostly_compute_bound</id>
+     <text>roofline_guidance_mostly_compute_bound_text</text>
+     <title>This loop is mostly compute bound but may also be memory bound </title>
+     <attributes>
+      <float:confidence>2</float:confidence>
+     </attributes>
+     <parameters>
+      <boolean:is_vectorized>false</boolean:is_vectorized>
+      <boolean:is_fma_dominated>false</boolean:is_fma_dominated>
+      <boolean:scalar_mem_instructions>false</boolean:scalar_mem_instructions>
+      <boolean:inefficient_map>false</boolean:inefficient_map>
+      <boolean:low_vector_efficiency>false</boolean:low_vector_efficiency>
+      <int:limiting_roof>0</int:limiting_roof>
+     </parameters>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>26</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>issue_potential_vectorizability</id>
+   <int:severity>1</int:severity>
+   <text>&lt;b&gt;Cause: &lt;/b&gt; You are using a non-Intel compiler or an outdated Intel compiler. Nevertheless, it appears there are no issues preventing vectorization and vectorization may be profitable. </text>
+   <title>Compiler lacks sufficient information to vectorize loop </title>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_enable_autovectorization_c</id>
+     <text>You compiled with auto-vectorization disabled; enable auto-vectorization: &lt;ul&gt; &lt;li&gt;Intel compiler 14.x or below: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Microsoft Visual C++* compiler: Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;GNU* gcc compiler, do one of the following: &lt;ul&gt; &lt;li&gt;Increase the optimization level to &lt;div class=&quot;inplace_sample&quot;&gt;O2&lt;/div&gt; or &lt;div class=&quot;inplace_sample&quot;&gt;O3&lt;/div&gt;. &lt;li&gt;Use the &lt;div class=&quot;inplace_sample&quot;&gt;ftree-vectorize&lt;/div&gt; compiler option &lt;/ul&gt; &lt;/ul&gt; </text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>28</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>65</unsignedInt:flags>
+   <id>issue_system_functions</id>
+   <int:severity>1</int:severity>
+   <text>System function call(s) in the &lt;a href=&quot;https://software.intel.com/en-us/articles/intel-advisor-xe-2016-vectorization-advisor-glossary&quot;&gt;loop body&lt;/a&gt; may prevent the compiler from vectorizing the loop. </text>
+   <title>System function call(s) present </title>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>rec_system_functions_move_c</id>
+     <text>Typically system function or subroutine calls cannot be auto-vectorized; even a print statement is sufficient to prevent vectorization. To fix: Avoid using system function calls in loops. </text>
+     <title>Remove system function call(s) inside loop </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>31</unsignedLong:rowKey>
+  </issue>
+ </issues>
+ <traits>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>5</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>14</int:id>
+   <text>Indirect Function Calls Present </text>
+   <unsignedLong:rowKey>5</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>6</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>10</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>12</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>4</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>13</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>135</int:fieldId>
+   <int:id>5</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>13</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>140</int:fieldId>
+   <int:id>6</int:id>
+   <text>Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>13</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>7</int:id>
+   <text>Average Iteration Duration Issue (Expand Trip Counts Column To Check Exact Duration Value) 
+Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>13</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>4</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>16</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>135</int:fieldId>
+   <int:id>5</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>16</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>4</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>20</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>135</int:fieldId>
+   <int:id>5</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>20</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>140</int:fieldId>
+   <int:id>6</int:id>
+   <text>Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>20</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>7</int:id>
+   <text>Average Iteration Duration Issue (Expand Trip Counts Column To Check Exact Duration Value) 
+Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>20</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>22</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>4</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>23</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>135</int:fieldId>
+   <int:id>5</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>23</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>140</int:fieldId>
+   <int:id>6</int:id>
+   <text>Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>23</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>7</int:id>
+   <text>Average Iteration Duration Issue (Expand Trip Counts Column To Check Exact Duration Value) 
+Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>23</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>25</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>4</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>26</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>135</int:fieldId>
+   <int:id>5</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>26</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>140</int:fieldId>
+   <int:id>6</int:id>
+   <text>Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>26</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>7</int:id>
+   <text>Average Iteration Duration Issue (Expand Trip Counts Column To Check Exact Duration Value) 
+Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>26</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>4</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>28</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>135</int:fieldId>
+   <int:id>5</int:id>
+   <text>Low Trip Counts May Produce Ineffective Peeled/Remainder Loops After Vectorization - Consider Adding Data Padding or Identifying Expected Number of Iterations </text>
+   <unsignedLong:rowKey>28</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>140</int:fieldId>
+   <int:id>6</int:id>
+   <text>Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>28</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>142</int:fieldId>
+   <int:id>7</int:id>
+   <text>Average Iteration Duration Issue (Expand Trip Counts Column To Check Exact Duration Value) 
+Low Iteration Duration Makes This Loop a Better Candidate for Vectorization Parallelism Than Threading Parallelism </text>
+   <unsignedLong:rowKey>28</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>31</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>32</unsignedLong:rowKey>
+  </trait>
+ </traits>
+</bag>

@@ -1,0 +1,7 @@
+104 [140561501398784] INFO mrtehelpers.mrteenv <> - Product libs directory: /usr/local/intel/oneapi/advisor/2021.3.0/lib64
+104 [140561501398784] INFO mrtehelpers.mrteenv <> - File mask: advixe_tpssmrte_clrprof*
+187 [140561501398784] INFO mrtehelpers.mrteenv <> - File name: lib
+187 [140561501398784] INFO mrtehelpers.mrteenv <> - File mask: advixe_tpssmrte_clrprof*
+194 [140561501398784] INFO mrtehelpers.mrteenv <> - File name: lib
+194 [140561501398784] ERROR mrtehelpers.mrteenv <> - Failed to init shared librarylib located at /usr/local/intel/oneapi/advisor/2021.3.0/lib64, at file: vcs/mrtehelpers3/src/mrteenv/mrte_profiling_initializer.cpp:485
+194 [140561501398784] ERROR mrtehelpers.mrteenv <> - CLR support is disabled because profiler GUID is empty, at file: vcs/mrtehelpers3/src/mrteenv/mrte_profiling_initializer.cpp:308

@@ -1,0 +1,10 @@
+
+=== Start: [2023/04/23 11:52:19] === 
+Peak bandwidth measurement started...
+Peak bandwidth measurement finished.
+Analysis started...
+Result file: /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/trc000/trc000.advixe 
+Application exit code: 0 
+Result file: /s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/trc000/trc000.advixe 
+Analysis completed
+=== End: [2023/04/23 11:52:58] === 

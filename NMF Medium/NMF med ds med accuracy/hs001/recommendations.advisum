@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="83"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="3.600165E-01"
+           total_time="0.000000E+00"
+           trip_counts=""
+           func_instance="21"
+           priority="0">
+           <recommendation id="rec_libsvml_gcc_c" title="Use the Intel short vector math library for vector intrinsics" confidence="3" gain="-1"/>
+  </hotspot>
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="143"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="3.499929E+00"
+           total_time="0.000000E+00"
+           trip_counts=""
+           func_instance="25"
+           priority="0">
+           <recommendation id="rec_div_c" title="Enable the use of approximate division instructions" confidence="1" gain="-1"/>
+  </hotspot>
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="83"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="3.600165E-01"
+           total_time="0.000000E+00"
+           trip_counts=""
+           func_instance="21"
+           priority="0">
+           <recommendation id="rec_libmvec_new_glibc_c" title="Use a Glibc library with vectorized SVML functions" confidence="1" gain="-1"/>
+  </hotspot>
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/nmf.c"
+           line_no="85"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="0.000000E+00"
+           trip_counts=""
+           func_instance="34"
+           priority="0">
+           <recommendation id="rec_system_functions_move_c" title="Remove system function call(s) inside loop" confidence="1" gain="-1"/>
+  </hotspot>
+</IntelParallelAdvisorSummary >
