@@ -10,15 +10,17 @@
 #include "learn.h"
 #include "feature.h"
 
+#define min(x, y)   ((x)>(y) ? (y) : (x))
+
 double get_time() {
     struct timeval tv;
     gettimeofday(&tv, NULL);
     return (double)tv.tv_sec + (double)tv.tv_usec / 1000000.0;
 }
 
-void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, double **H, int maxiter){
+void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, double **H, int maxiter, int blk_size){
     double **X_hat;
-    int i,j;
+    int i,j,k,ii;
     double flops = 0;
     double gflops = 0;
 
@@ -33,11 +35,14 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
     // initialize W, H
     init_genrand(2468);
     // W(n_rows, n_class)
-    for(i = 0;i < n_rows;i++){
-        for(j = 0;j < n_class;j++){
-            W[i][j] = genrand_real3();
-            flops++;
-        }
+    for (ii = 0; ii < n_rows; ii+=blk_size) {
+      // for(i = 0;i < n_rows;i++){
+      for(i = ii; i < min(ii+blk_size, n_rows); i++){
+          for(j = 0;j < n_class;j++){
+              W[i][j] = genrand_real3();
+              flops++;
+          }
+      }
     }
     // H(n_class, n_cols)
     for(i = 0;i < n_class;i++){
@@ -47,16 +52,28 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
         }
     }
 
+    // for(i = 0;i < n_rows;i++){
+    //   for(j = 0;j < n_class;j++){
+    //     W[i][j] = genrand_real3();
+    //
+    //     for(k = 0;k < n_cols;k++){
+    //         H[j][k] = genrand_real3();
+    //         flops++;
+    //     }
+    //   }
+    // }
+
     // X_hat = W x H
-    int k;
-    for(i = 0;i < n_rows;i++){
-        for(j = 0;j < n_cols;j++){
-            X_hat[i][j] = 0.0;
-            for(k = 0;k < n_class;k++){
-                X_hat[i][j] += W[i][k] * H[k][j];
-                flops+=2; // 2 flops - 1 multiply and 1 add
-            }
-        }
+    for (ii = 0; ii < n_rows; ii+=blk_size) {
+      for(i = ii; i < min(ii+blk_size, n_rows); i++){
+          for(j = 0; j < n_cols; j++){
+              X_hat[i][j] = 0.0;
+              for(k = 0; k < n_class; k++){
+                  X_hat[i][j] += W[i][k] * H[k][j];
+                  flops+=2; // 2 flops - 1 multiply and 1 add
+              }
+          }
+      }
     }
 
 
@@ -79,11 +96,13 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
     for(it = 0;it < maxiter;it++){
         // compute IS divergence
         isd = 0.0;
-        for(i = 0;i < n_rows;i++){
-            for(j = 0;j < n_cols;j++){
-                isd += ((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - log((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - 1.0;
-                flops+=4; // 4 flops - 2 divides, 1 log, and 1 subtract
-            }
+        for (ii = 0; ii < n_rows; ii+=blk_size) {
+          for(i = ii; i < min(ii+blk_size, n_rows); i++){
+              for(j = 0;j < n_cols;j++){
+                  isd += ((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - log((data[i][j]+epsilon) / (X_hat[i][j]+epsilon)) - 1.0;
+                  flops+=4; // 4 flops - 2 divides, 1 log, and 1 subtract
+              }
+          }
         }
        // only ouput this value every 100 iterations
         if(it % 500 == 0){
@@ -105,36 +124,47 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
 
         // update rules for minimizing IS divergence
         // update W
-        for(i = 0;i < n_rows;i++){
-            for(k = 0;k < n_class;k++){
-                if(W[i][k] != 0.0){
-                    numerator = 0.0;
-                    denominator = 0.0;
-                    for(j = 0;j < n_cols;j++){
-                        numerator += ((data[i][j]+epsilon) * H[k][j]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
-                        denominator += H[k][j] / (X_hat[i][j]+epsilon);
-                        flops += 6; // 6 flops - 2 divides, 1 multiply, 1 add, 1 subtract, and 1 divide
-                    }
-                    if(denominator != 0.0){
-                        W[i][k] = W[i][k] * sqrt(numerator / denominator);
-                        flops += 2; // 2 flops - 1 multiply and 1 divide
-                    }else{
-                        W[i][k] = W[i][k] * sqrt(numerator / epsilon);
-                        flops += 2; // 2 flops - 1 multiply and 1 divide
-                    }
-                    if(W[i][k] < epsilon) W[i][k] = 0.0;
-                }
-            }
+        for (ii = 0; ii < n_rows; ii+=blk_size) {
+          for(i = ii; i < min(ii+blk_size, n_rows); i++){
+              for(k = 0;k < n_class;k++){
+                  if(W[i][k] != 0.0){
+                      numerator = 0.0;
+                      denominator = 0.0;
+                      for(j = 0;j < n_cols;j++){
+                          numerator += ((data[i][j]+epsilon) * H[k][j]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
+                          denominator += H[k][j] / (X_hat[i][j]+epsilon);
+                          flops += 6; // 6 flops - 2 divides, 1 multiply, 1 add, 1 subtract, and 1 divide
+                      }
+                      if(denominator != 0.0){
+                          W[i][k] = W[i][k] * sqrt(numerator / denominator);
+                          flops += 2; // 2 flops - 1 multiply and 1 divide
+                      }else{
+                          W[i][k] = W[i][k] * sqrt(numerator / epsilon);
+                          flops += 2; // 2 flops - 1 multiply and 1 divide
+                      }
+                      if(W[i][k] < epsilon) W[i][k] = 0.0;
+                  }
+              }
+              // for(j = 0;j < n_cols;j++){
+              //   X_hat[i][j] = 0.0;
+              //   for(k = 0;k < n_class;k++){
+              //     X_hat[i][j] += W[i][k] * H[k][j];
+              //     flops+=2; // 2 flops - 1 multiply and 1 add
+              //   }
+              // }
+          }
         }
         // update X_hat
-        for(i = 0;i < n_rows;i++){
-            for(j = 0;j < n_cols;j++){
-                X_hat[i][j] = 0.0;
-                for(k = 0;k < n_class;k++){
-                    X_hat[i][j] += W[i][k] * H[k][j];
-                    flops+=2; // 2 flops - 1 multiply and 1 add
-                }
-            }
+        for (ii = 0; ii < n_rows; ii+=blk_size) {
+          for(i = ii; i < min(ii+blk_size, n_rows); i++){
+              for(j = 0;j < n_cols;j++){
+                  X_hat[i][j] = 0.0;
+                  for(k = 0;k < n_class;k++){
+                      X_hat[i][j] += W[i][k] * H[k][j];
+                      flops+=2; // 2 flops - 1 multiply and 1 add
+                  }
+              }
+          }
         }
         // update H
         for(k = 0;k < n_class;k++){
@@ -142,10 +172,12 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                 if(H[k][j] != 0.0){
                     numerator = 0.0;
                     denominator = 0.0;
-                    for(i = 0;i < n_rows;i++){
-                        numerator += ((data[i][j]+epsilon) * W[i][k]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
-                        denominator += W[i][k] / (X_hat[i][j]+epsilon);
-                        flops += 6; // 6 flops - 2 divides, 1 multiply, 1 add, 1 subtract, and 1 divide
+                    for (ii = 0; ii < n_rows; ii+=blk_size) {
+                      for(i = ii; i < min(ii+blk_size, n_rows); i++){
+                          numerator += ((data[i][j]+epsilon) * W[i][k]) / ((X_hat[i][j]+epsilon) * (X_hat[i][j]+epsilon));
+                          denominator += W[i][k] / (X_hat[i][j]+epsilon);
+                          flops += 6; // 6 flops - 2 divides, 1 multiply, 1 add, 1 subtract, and 1 divide
+                      }
                     }
                     if(denominator != 0.0){
                         H[k][j] = H[k][j] * sqrt(numerator / denominator);
@@ -156,17 +188,30 @@ void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, d
                     }
                     if(H[k][j] < epsilon) H[k][j] = 0.0;
                 }
+
+                // // update X_hat
+                // for (ii = 0; ii < n_rows; ii+=blk_size) {
+                //   for(i = ii; i < min(ii+blk_size, n_rows); i++){
+                //         X_hat[i][j] = 0.0;
+                //         for(int l = 0;l < n_class;l++){
+                //             X_hat[i][j] += W[i][l] * H[l][j];
+                //             flops+=2; // 2 flops - 1 multiply and 1 add
+                //         }
+                //   }
+                // }
             }
         }
         // update X_hat
-        for(i = 0;i < n_rows;i++){
-            for(j = 0;j < n_cols;j++){
-                X_hat[i][j] = 0.0;
-                for(k = 0;k < n_class;k++){
-                    X_hat[i][j] += W[i][k] * H[k][j];
-                    flops+=2; // 2 flops - 1 multiply and 1 add
-                }
-            }
+        for (ii = 0; ii < n_rows; ii+=blk_size) {
+          for(i = ii; i < min(ii+blk_size, n_rows); i++){
+              for(j = 0;j < n_cols;j++){
+                  X_hat[i][j] = 0.0;
+                  for(k = 0;k < n_class;k++){
+                      X_hat[i][j] += W[i][k] * H[k][j];
+                      flops+=2; // 2 flops - 1 multiply and 1 add
+                  }
+              }
+          }
         }
     }
     fclose(ofp);

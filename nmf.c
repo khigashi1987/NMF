@@ -14,17 +14,19 @@
 int main(int argc, char **argv){
     table data;
     char c;
+    int blk_size = 1;
     int nclass = CLASS_DEFAULT;
     int maxiter = MAXITER_DEFAULT;
     float threshold = THRESHOLD_DEFAULT;
     int i,j;
     double time;
-    
-    while((c = getopt(argc, argv, "N:I:T:h")) != -1){
+
+    while((c = getopt(argc, argv, "N:I:T:B:h")) != -1){
         switch(c){
             case 'N': nclass = atoi(optarg); break;
             case 'I': maxiter = atoi(optarg); break;
             case 'T': threshold = atof(optarg); break;
+            case 'B': blk_size = atof(optarg); break;
             case 'h': usage(); break;
             default: usage(); break;
         }
@@ -32,10 +34,10 @@ int main(int argc, char **argv){
     if(!(argc - optind == 1)){
         usage();
     }
-    
+
     // open data
     data = feature_matrix(argv[optind]);
-    
+
     fprintf(stdout,"Number of words      %d\n",data.n_rows);
     fprintf(stdout,"Number of samples    %d\n",data.n_cols);
     fprintf(stdout,"Number of classes    %d\n",nclass);
@@ -55,9 +57,9 @@ int main(int argc, char **argv){
     for(i = 0;i < nclass;i++){
         H[i] = (double *)calloc(data.n_cols,sizeof(double));
     }
-    
-    nmf_learn(data.matrix, data.n_rows, data.n_cols, nclass, W, H, maxiter);
-    
+
+    nmf_learn(data.matrix, data.n_rows, data.n_cols, nclass, W, H, maxiter, blk_size);
+
    /* stop timer */
    stop_timer();
    time=elapsed_time ();
