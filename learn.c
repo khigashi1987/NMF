@@ -16,7 +16,7 @@ double get_time() {
     return (double)tv.tv_sec + (double)tv.tv_usec / 1000000.0;
 }
 
-void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, double **H, int maxiter){
+void nmf_learn(double **data, int n_rows, int n_cols, int n_class, double **W, double **H, int maxiter, int blk_size){
     double **X_hat;
     int i,j;
     double flops = 0;
