@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log version="1.0" tool="runtool">
+
+<msg id="1" tool="runtool">
+  <type>log-start</type>
+  <arg>2023/04/23 11:56:47</arg>
+</msg>
+<msg id="2" tool="runtool">
+  <type>bandwidth-measurement-starts</type>
+</msg>
+<msg id="3" tool="runtool">
+  <type>bandwidth-measurement-done</type>
+</msg>
+<msg id="4" tool="runtool">
+  <type>collector-starts</type>
+</msg>
+<msg id="5" tool="runtool">
+  <type>marker-file</type>
+  <arg>/s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="6" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/s/chopin/k/grad/kriv/CS575/NMF/nmf</arg>
+  <arg>379467</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:56:57 2023</timestamp>
+</msg>
+<msg id="7" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:56:57 2023</timestamp>
+</msg>
+<msg id="8" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/s/chopin/k/grad/kriv/CS575/NMF/nmf</arg>
+  <arg>0x400000</arg>
+  <arg>0x6054b7</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:56:57 2023</timestamp>
+</msg>
+<msg id="9" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x7f4db9cd7000</arg>
+  <arg>0x7f4db9f0620f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:56:57 2023</timestamp>
+</msg>
+<msg id="10" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffe14b7b000</arg>
+  <arg>0x7ffe14b7bf5c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:56:57 2023</timestamp>
+</msg>
+<msg id="11" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <arg>0x7f4da3924000</arg>
+  <arg>0x7f4da3ca513f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:56:57 2023</timestamp>
+</msg>
+<msg id="12" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x7f4da3542000</arg>
+  <arg>0x7f4da39078bf</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:56:57 2023</timestamp>
+</msg>
+<msg id="13" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/s/chopin/k/grad/kriv/CS575/NMF/nmf</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:57:21 2023</timestamp>
+</msg>
+<msg id="14" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:57:21 2023</timestamp>
+</msg>
+<msg id="15" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:57:21 2023</timestamp>
+</msg>
+<msg id="16" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:57:21 2023</timestamp>
+</msg>
+<msg id="17" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:57:21 2023</timestamp>
+</msg>
+<msg id="18" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/s/chopin/k/grad/kriv/CS575/NMF/nmf</arg>
+  <arg>379467</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Sun Apr 23 11:57:21 2023</timestamp>
+</msg>
+<msg id="19" tool="runtool">
+  <type>app-exit-code</type>
+  <arg>0</arg>
+</msg>
+<msg id="20" tool="runtool">
+  <type>marker-file</type>
+  <arg>/s/chopin/k/grad/kriv/intel/advixe/projects/NMF small/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="21" tool="runtool">
+  <type>collector-done</type>
+</msg>
+<msg id="22" tool="runtool">
+  <type>log-end</type>
+  <arg>2023/04/23 11:57:25</arg>
+</msg>
+
+</log>
+

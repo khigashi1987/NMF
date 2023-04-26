@@ -1,7 +1,8 @@
-PROGRAM	= nmf
+PROGRAM	= nmf nmfOpt nmfPar
 CC	= gcc
 CFLAGS	= -O3
-SRCS	= timer.c nmf.c feature.c learn.c testMatricies.c
+CPARFLAGS = -O3 -fopenmp
+SRCS	= timer.c nmf.c feature.c testMatricies.c
 OBJS	= $(SRCS:.c=.o)
 HEADERS	= $(SRCS:.c=.h)
 LDFLAGS	= -lm
@@ -12,8 +13,13 @@ DISTFILES	= $(SRCS) $(HEADERS) Makefile
 
 all: depend $(PROGRAM)
 
-$(PROGRAM): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+nmf: learn.c $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $< $(OBJS) $(LDFLAGS)
+nmfOpt: learnOpt.c $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $< $(OBJS) $(LDFLAGS)
+nmfPar: learnPar.c $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $< $(OBJS) $(LDFLAGS) 
+		
 .c.o:
 	$(CC) $(CFLAGS) -c $<
 

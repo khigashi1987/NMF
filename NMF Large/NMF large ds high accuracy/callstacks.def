@@ -1,0 +1,550 @@
+# callstacks file version: 7
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi
+         1	        -1	      4160	    0	      0	                                  _start	/s/chopin/k/grad/kriv/CS575/NMF/nmf	4160	47	0	1	0	0	0	0	0	0	0
+         2	        -1	      4205	    0	      0	                                  _start	/s/chopin/k/grad/kriv/CS575/NMF/nmf	4160	47	0	1	0	0	0	0	0	0	0
+         3	       538	    241028	    1	      1	     [Loop@0x3acfe in __libc_start_main]	/lib64/libc.so.6	240894	261	0	2	0	0	0	0	0	0	0
+         4	         3	      3571	    0	      0	                                    main	/s/chopin/k/grad/kriv/CS575/NMF/nmf	3152	998	0	4	0	0	0	0	0	0	0
+         5	       221	      8083	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+         6	       224	      6873	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+         7	         6	    490320	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+         8	       228	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+         9	       221	      8147	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        10	         6	    490470	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        11	       221	      8134	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        12	       242	      8467	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8464	11	8475	19	0	0	0	0	0	0	0
+        13	       221	      8139	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        14	       246	      7576	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        15	       246	      7586	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        16	       221	      8093	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        17	         6	    490740	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        18	       252	      8418	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8400	31	8431	25	0	0	0	0	0	0	0
+        19	       256	      7863	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7856	11	7867	27	0	0	0	0	0	0	0
+        20	       242	      8471	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8464	11	8475	19	0	0	0	0	0	0	0
+        21	       246	      7334	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        22	         6	    490068	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        23	       260	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+        24	       269	      7381	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        25	       224	      6907	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+        26	       269	      7433	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        27	         6	    490417	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        28	       221	      8104	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        29	         6	    490277	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        30	       246	      7568	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        31	       269	      7407	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        32	       221	      8108	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        33	         6	    490296	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        34	         6	    490475	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        35	       278	      7810	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	31	7823	30	0	0	0	0	0	0	0
+        36	       269	      7398	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        37	       224	      6920	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+        38	       246	      7286	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        39	       221	      8130	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        40	       252	      8408	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8400	31	8431	25	0	0	0	0	0	0	0
+        41	       278	      7795	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	31	7823	30	0	0	0	0	0	0	0
+        42	       224	      6851	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+        43	       246	      7256	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        44	       221	      8116	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        45	       252	      8403	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8400	31	8431	25	0	0	0	0	0	0	0
+        46	       278	      7818	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	31	7823	30	0	0	0	0	0	0	0
+        47	         6	    490355	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        48	       269	      7442	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        49	       224	      6915	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+        50	         6	    490214	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        51	       269	      7393	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        52	       221	      8098	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        53	       256	      7856	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7856	11	7867	27	0	0	0	0	0	0	0
+        54	         6	    490206	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        55	         6	    490171	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        56	       252	      8413	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8400	31	8431	25	0	0	0	0	0	0	0
+        57	       269	      7446	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        58	       252	      8426	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8400	31	8431	25	0	0	0	0	0	0	0
+        59	       269	      7412	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        60	         6	    490758	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        61	       252	      8422	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8400	31	8431	25	0	0	0	0	0	0	0
+        62	       246	      7603	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        63	       221	      8126	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        64	         6	    490013	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        65	       221	      8121	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        66	         6	    490704	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        67	       246	      7295	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        68	         6	    490466	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        69	       224	      6880	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+        70	         6	    490337	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        71	       269	      7438	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        72	       307	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+        73	       278	      7800	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	31	7823	30	0	0	0	0	0	0	0
+        74	       256	      7859	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7856	11	7867	27	0	0	0	0	0	0	0
+        75	         6	      2928	    0	      0	                           func@0x400b70	/s/chopin/k/grad/kriv/CS575/NMF/nmf	2928	6	0	31	0	0	0	0	0	0	0
+        76	       242	      8464	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8464	11	8475	19	0	0	0	0	0	0	0
+        77	       226	      7765	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7704	87	7894	18	0	0	0	0	0	0	0
+        78	       269	      7416	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        79	         6	    490753	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        80	         6	    490350	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        81	       239	      8351	    1	      0	         [Loop at line 162 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8304	198	8502	21	0	0	0	0	0	0	0
+        82	        81	    853157	    0	      1	            __memset_avx2_unaligned_erms	/lib64/libc.so.6	853072	271	0	12	0	0	0	0	0	0	0
+        83	       246	      7564	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        84	       221	      8143	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        85	         6	    490695	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        86	       226	      7745	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7704	87	7894	18	0	0	0	0	0	0	0
+        87	        86	    853151	    0	      1	            __memset_avx2_unaligned_erms	/lib64/libc.so.6	853072	271	0	12	0	0	0	0	0	0	0
+        88	       278	      7805	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	31	7823	30	0	0	0	0	0	0	0
+        89	         6	    490762	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+        90	       246	      7339	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        91	         6	     50212	    0	      1	                             func@0xc424	/lib64/libm.so.6	50212	16	0	6	0	0	0	0	0	0	0
+        92	       221	      8087	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+        93	       278	      7792	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	31	7823	30	0	0	0	0	0	0	0
+        94	       246	      7465	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        95	       269	      7359	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        96	       246	      7469	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+        97	       245	      7244	    1	      0	         [Loop at line 108 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7232	19	7663	23	0	0	0	0	0	0	0
+        98	       269	      7355	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+        99	       224	      6829	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+       100	         6	    490390	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       101	         6	    490160	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       102	         6	    490203	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       103	       269	      7402	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       104	       269	      7451	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       105	       246	      7473	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       106	         6	    490346	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       107	       338	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       108	         6	    490267	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       109	       252	      8400	    1	      0	         [Loop at line 165 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8400	31	8431	25	0	0	0	0	0	0	0
+       110	        81	      2912	    0	      0	                           func@0x400b60	/s/chopin/k/grad/kriv/CS575/NMF/nmf	2912	6	0	32	0	0	0	0	0	0	0
+       111	       224	      6847	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+       112	         6	    490252	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       113	         6	    490301	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       114	       269	      7368	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       115	       221	      8064	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+       116	       226	      7759	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7704	87	7894	18	0	0	0	0	0	0	0
+       117	         6	    490150	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       118	       224	      6925	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+       119	         6	    490433	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       120	       223	      6807	    1	      0	          [Loop at line 82 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6784	162	6946	16	0	0	0	0	0	0	0
+       121	       269	      7429	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       122	       355	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       123	       239	      8304	    1	      0	         [Loop at line 162 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8304	198	8502	21	0	0	0	0	0	0	0
+       124	       224	      6883	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+       125	       226	      7741	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7704	87	7894	18	0	0	0	0	0	0	0
+       126	       223	      6927	    1	      0	          [Loop at line 82 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6784	162	6946	16	0	0	0	0	0	0	0
+       127	       368	      8388	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       128	       377	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       129	       246	      7572	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       130	       246	      7594	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       131	       221	      8112	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+       132	       226	      7875	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	102	7894	18	0	0	0	0	0	0	0
+       133	         6	    490784	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       134	         6	    490722	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       135	       390	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       136	       399	      8394	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       137	       269	      7376	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       138	       278	      7814	    1	      0	         [Loop at line 133 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	31	7823	30	0	0	0	0	0	0	0
+       139	       221	      8077	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+       140	       411	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       141	         6	    490768	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       142	       221	      8067	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+       143	         6	    490731	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       144	       246	      7582	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       145	         6	    490264	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       146	         6	    490072	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       147	       223	      6784	    1	      0	          [Loop at line 82 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6784	162	6946	16	0	0	0	0	0	0	0
+       148	         6	    490163	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       149	       423	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       150	       432	      8437	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       151	       441	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       152	         6	    490622	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       153	       269	      7350	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       154	        81	    853118	    0	      1	            __memset_avx2_unaligned_erms	/lib64/libc.so.6	853072	271	0	12	0	0	0	0	0	0	0
+       155	       451	      7833	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       156	       246	      7558	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       157	       221	      8072	    1	      0	         [Loop at line 143 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	88	8152	7	0	0	0	0	0	0	0
+       158	         6	    490099	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       159	         6	    490677	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       160	       218	      7069	    1	      0	          [Loop at line 79 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6714	537	8538,9134,8538	11	0	0	0	0	0	0	0
+       161	       160	    456999	    0	      1	                             _IO_fprintf	/lib64/libc.so.6	456848	181	0	14	0	0	0	0	0	0	0
+       162	       161	    423534	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	420560	12132	0	24	0	0	0	0	0	0	0
+       163	       162	    434612	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	434480	10834	0	44	0	0	0	0	0	0	0
+       164	         6	    490229	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       165	       239	      8344	    1	      0	         [Loop at line 162 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8304	198	8502	21	0	0	0	0	0	0	0
+       166	       246	      7260	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       167	       246	      7608	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       168	         6	    490136	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       169	       466	      7844	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       170	       162	    445346	    0	      1	                             __printf_fp	/lib64/libc.so.6	445328	29	0	45	0	0	0	0	0	0	0
+       171	        86	    853118	    0	      1	            __memset_avx2_unaligned_erms	/lib64/libc.so.6	853072	271	0	12	0	0	0	0	0	0	0
+       172	       224	      6816	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+       173	       226	      7716	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7704	87	7894	18	0	0	0	0	0	0	0
+       174	       246	      7332	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       175	       269	      7420	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       176	       226	      7704	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7704	87	7894	18	0	0	0	0	0	0	0
+       177	       246	      7284	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       178	       226	      7773	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7704	87	7894	18	0	0	0	0	0	0	0
+       179	       224	      6869	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+       180	         6	    490017	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       181	       483	      7783	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       182	       220	      8176	    1	      0	         [Loop at line 141 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	171	8240,8235	9	0	0	0	0	0	0	0
+       183	       493	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       184	         6	    490190	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       185	       224	      6889	    1	      0	          [Loop at line 83 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6816	111	6927	15	0	0	0	0	0	0	0
+       186	         6	    490195	    0	      1	                            func@0x779f1	/lib64/libm.so.6	489969	879	0	3	0	0	0	0	0	0	0
+       187	       503	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       188	       512	      7780	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       189	         6	     62336	    0	      1	                                 logf32x	/lib64/libm.so.6	62336	102	0	13	0	0	0	0	0	0	0
+       190	       239	      8379	    1	      0	         [Loop at line 162 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8304	198	8502	21	0	0	0	0	0	0	0
+       191	       269	      7389	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       192	       269	      7455	    1	      0	         [Loop at line 113 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7344	121	7465	29	0	0	0	0	0	0	0
+       193	       239	      8318	    1	      0	         [Loop at line 162 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8304	198	8502	21	0	0	0	0	0	0	0
+       194	       526	      3815	    1	      0	               [Loop at line 85 in main]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	3784	39	3823	33	0	0	0	0	0	0	0
+       195	       194	    456999	    0	      1	                             _IO_fprintf	/lib64/libc.so.6	456848	181	0	14	0	0	0	0	0	0	0
+       196	       195	    423534	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	420560	12132	0	24	0	0	0	0	0	0	0
+       197	       540	    442326	    1	      1	    [Loop@0x6bf98 in __GI___printf_fp_l]	/lib64/libc.so.6	442264	68	0	46	0	0	0	0	0	0	0
+       198	       197	    606910	    0	      1	                       _IO_file_overflow	/lib64/libc.so.6	606528	521	0	47	0	0	0	0	0	0	0
+       199	       198	    605800	    0	      1	                            _IO_do_write	/lib64/libc.so.6	605776	38	0	48	0	0	0	0	0	0	0
+       200	       199	    598302	    0	      1	                            new_do_write	/lib64/libc.so.6	598208	338	0	49	0	0	0	0	0	0	0
+       201	       542	    601516	    1	      1	        [Loop@0x92da8 in _IO_file_write]	/lib64/libc.so.6	601512	50	0	50	0	0	0	0	0	0	0
+       202	       201	   1182664	    0	      1	                                 __write	/lib64/libc.so.6	1182640	161	0	52	0	0	0	0	0	0	0
+       203	         3	      4142	    0	      0	                                    main	/s/chopin/k/grad/kriv/CS575/NMF/nmf	3152	998	0	4	0	0	0	0	0	0	0
+       204	       203	     11833	    0	      0	                        compareMatricies	/s/chopin/k/grad/kriv/CS575/NMF/nmf	11792	890	0	35	0	0	0	0	0	0	0
+       205	       204	     11274	    0	      0	                          feature_matrix	/s/chopin/k/grad/kriv/CS575/NMF/nmf	11200	149	0	36	0	0	0	0	0	0	0
+       206	       528	     10360	    1	      0	          [Loop at line 139 in get_data]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10344	26	10370	37	0	0	0	0	0	0	0
+       207	       206	    645077	    0	      1	                                  calloc	/lib64/libc.so.6	644944	996	0	53	0	0	0	0	0	0	0
+       208	       207	    637439	    0	      1	                             _int_malloc	/lib64/libc.so.6	634160	3692	0	54	0	0	0	0	0	0	0
+       209	       203	     11869	    0	      0	                        compareMatricies	/s/chopin/k/grad/kriv/CS575/NMF/nmf	11792	890	0	35	0	0	0	0	0	0	0
+       210	       209	     11274	    0	      0	                          feature_matrix	/s/chopin/k/grad/kriv/CS575/NMF/nmf	11200	149	0	36	0	0	0	0	0	0	0
+       211	       532	     10513	    0	      0	                                    atof	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10509	5	0	39	0	1	0	0	0	0	0
+       212	       544	    356596	    1	      1	 [Loop@0x56fab in ____strtod_l_internal]	/lib64/libc.so.6	356560	322	0	55	0	0	0	0	0	0	0
+       213	       536	     12290	    1	      0	   [Loop at line 64 in compareMatricies]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	12264	32	12296	42	0	0	0	0	0	0	0
+       214	       213	    456999	    0	      1	                             _IO_fprintf	/lib64/libc.so.6	456848	181	0	14	0	0	0	0	0	0	0
+       215	       214	    423534	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	420560	12132	0	24	0	0	0	0	0	0	0
+       216	       546	    436939	    1	      1	    [Loop@0x6aac0 in __GI___printf_fp_l]	/lib64/libc.so.6	436928	21	0	57	0	0	0	0	0	0	0
+       217	       216	    433475	    0	      1	                              hack_digit	/lib64/libc.so.6	433408	311	0	58	0	0	0	0	0	0	0
+       218	         4	      6714	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       219	       218	      7960	    1	      0	          [Loop at line 79 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	474	8538,9134,8538	11	0	0	0	0	0	0	0
+       220	       219	      7992	    1	      0	         [Loop at line 140 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	189	8253	10	0	0	0	0	0	0	0
+       221	       220	      8064	    1	      0	         [Loop at line 141 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	171	8240,8235	9	0	0	0	0	0	0	0
+       222	         4	      8083	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       223	       218	      6784	    1	      0	          [Loop at line 79 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6714	537	8538,9134,8538	11	0	0	0	0	0	0	0
+       224	       223	      6816	    1	      0	          [Loop at line 82 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	6784	162	6946	16	0	0	0	0	0	0	0
+       225	         4	      6873	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       226	       218	      7704	    1	      0	          [Loop at line 79 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	197	8538,9134,8538	11	0	0	0	0	0	0	0
+       227	       226	      7776	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	102	7894	18	0	0	0	0	0	0	0
+       228	       227	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       229	         4	      7829	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       230	       228	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       231	       228	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       232	       228	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       233	       228	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       234	       228	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       235	       228	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       236	       228	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       237	         4	      8147	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       238	         4	      8134	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       239	       218	      8304	    1	      0	          [Loop at line 79 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8064	474	8538,9134,8538	11	0	0	0	0	0	0	0
+       240	       239	      8448	    1	      0	         [Loop at line 162 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8304	198	8502	21	0	0	0	0	0	0	0
+       241	       240	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       242	       241	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       243	         4	      8467	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       244	         4	      8139	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       245	       218	      7232	    1	      0	          [Loop at line 79 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	535	8538,9134,8538	11	0	0	0	0	0	0	0
+       246	       245	      7256	    1	      0	         [Loop at line 108 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	407	7663	23	0	0	0	0	0	0	0
+       247	         4	      7576	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       248	         4	      7586	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       249	         4	      8093	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       250	       239	      8384	    1	      0	         [Loop at line 162 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8304	198	8502	21	0	0	0	0	0	0	0
+       251	       250	      8400	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       252	       251	      8400	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       253	         4	      8418	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       254	       226	      7840	    1	      0	         [Loop at line 130 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	102	7894	18	0	0	0	0	0	0	0
+       255	       254	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       256	       255	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       257	         4	      7863	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       258	         4	      8471	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       259	         4	      7334	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       260	       227	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       261	         4	      7789	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       262	       260	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       263	       260	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       264	       260	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       265	       260	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       266	       260	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       267	       260	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       268	       260	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       269	       246	      7344	    1	      0	         [Loop at line 109 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7256	378	7640,7634	22	0	0	0	0	0	0	0
+       270	         4	      7381	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       271	         4	      6907	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       272	         4	      7433	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       273	         4	      8104	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       274	         4	      7568	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       275	         4	      7407	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       276	         4	      8108	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       277	       227	      7792	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       278	       277	      7792	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       279	         4	      7810	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       280	         4	      7398	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       281	         4	      6920	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       282	         4	      7286	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       283	         4	      8130	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       284	         4	      8408	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       285	         4	      7795	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       286	         4	      6851	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       287	         4	      7256	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       288	         4	      8116	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       289	         4	      8403	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       290	         4	      7818	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       291	         4	      7442	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       292	         4	      6915	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       293	         4	      7393	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       294	         4	      8098	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       295	         4	      7856	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       296	         4	      8413	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       297	         4	      7446	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       298	         4	      8426	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       299	         4	      7412	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       300	         4	      8422	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       301	         4	      7603	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       302	         4	      8126	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       303	         4	      8121	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       304	         4	      7295	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       305	         4	      6880	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       306	         4	      7438	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       307	       250	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       308	         4	      8441	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       309	       307	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       310	       307	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       311	       307	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       312	       307	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       313	       307	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       314	       307	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       315	       307	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       316	         4	      7800	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       317	         4	      7859	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       318	         4	      8464	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       319	         4	      7765	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       320	         4	      7416	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       321	         4	      8351	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       322	         4	      7564	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       323	         4	      8143	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       324	         4	      7745	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       325	         4	      7805	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       326	         4	      7339	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       327	         4	      8087	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       328	         4	      7792	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       329	         4	      7465	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       330	         4	      7359	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       331	         4	      7469	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       332	         4	      7244	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       333	         4	      7355	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       334	         4	      6829	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       335	         4	      7402	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       336	         4	      7451	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       337	         4	      7473	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       338	       240	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       339	         4	      8475	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       340	       338	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       341	       338	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       342	       338	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       343	       338	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       344	       338	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       345	       338	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       346	       338	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       347	         4	      8400	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       348	         4	      6847	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       349	         4	      7368	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       350	         4	      8064	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       351	         4	      7759	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       352	         4	      6925	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       353	         4	      6807	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       354	         4	      7429	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       355	       250	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       356	         4	      8398	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       357	       355	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       358	       355	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       359	       355	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       360	       355	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       361	       355	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       362	       355	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       363	       355	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       364	         4	      8304	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       365	         4	      6883	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       366	         4	      7741	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       367	         4	      6927	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       368	       250	      8388	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       369	         4	      8388	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       370	       368	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       371	       368	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       372	       368	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       373	       368	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       374	       368	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       375	       368	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       376	       368	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       377	       227	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       378	         4	      7823	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       379	       377	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       380	       377	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       381	       377	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       382	       377	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       383	       377	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       384	       377	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       385	       377	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       386	         4	      7572	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       387	         4	      7594	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       388	         4	      8112	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       389	         4	      7875	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       390	       254	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       391	         4	      7867	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       392	       390	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       393	       390	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       394	       390	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       395	       390	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       396	       390	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       397	       390	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       398	       390	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       399	       250	      8394	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       400	         4	      8394	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       401	       399	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       402	       399	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       403	       399	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       404	       399	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       405	       399	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       406	       399	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       407	       399	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       408	         4	      7376	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       409	         4	      7814	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       410	         4	      8077	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       411	       240	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       412	         4	      8448	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       413	       411	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       414	       411	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       415	       411	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       416	       411	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       417	       411	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       418	       411	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       419	       411	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       420	         4	      8067	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       421	         4	      7582	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       422	         4	      6784	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       423	       240	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       424	         4	      8452	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       425	       423	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       426	       423	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       427	       423	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       428	       423	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       429	       423	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       430	       423	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       431	       423	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       432	       250	      8437	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       433	         4	      8437	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       434	       432	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       435	       432	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       436	       432	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       437	       432	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       438	       432	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       439	       432	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       440	       432	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       441	       254	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       442	         4	      7846	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       443	       441	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       444	       441	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       445	       441	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       446	       441	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       447	       441	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       448	       441	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       449	       441	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       450	         4	      7350	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       451	       227	      7833	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       452	         4	      7833	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       453	       451	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       454	       451	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       455	       451	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       456	       451	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       457	       451	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       458	       451	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       459	       451	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       460	         4	      7558	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       461	         4	      8072	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       462	         4	      7069	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       463	         4	      8344	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       464	         4	      7260	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       465	         4	      7608	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       466	       254	      7844	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       467	         4	      7844	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       468	       466	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       469	       466	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       470	       466	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       471	       466	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       472	       466	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       473	       466	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       474	       466	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       475	         4	      6816	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       476	         4	      7716	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       477	         4	      7332	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       478	         4	      7420	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       479	         4	      7704	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       480	         4	      7284	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       481	         4	      7773	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       482	         4	      6869	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       483	       227	      7783	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       484	         4	      7783	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       485	       483	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       486	       483	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       487	       483	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       488	       483	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       489	       483	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       490	       483	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       491	       483	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       492	         4	      8176	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       493	       227	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       494	         4	      7776	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       495	       493	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       496	       493	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       497	       493	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       498	       493	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       499	       493	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       500	       493	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       501	       493	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       502	         4	      6889	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       503	       250	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8446,8483	60	0	0	0	0	0	0	0
+       504	         4	      8384	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       505	       503	      8441	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       506	       503	      8475	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       507	       503	      8398	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       508	       503	      8448	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       509	       503	      8452	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       510	       503	      8384	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8384	62	8446	26	0	0	0	0	0	0	0
+       511	       503	      8464	    1	      0	         [Loop at line 163 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	8448	35	8483	20	0	0	0	0	0	0	0
+       512	       227	      7780	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838,7875	59	0	0	0	0	0	0	0
+       513	         4	      7780	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       514	       512	      7829	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       515	       512	      7789	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       516	       512	      7823	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7792	46	7838	17	0	0	0	0	0	0	0
+       517	       512	      7867	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       518	       512	      7846	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       519	       512	      7776	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7776	15	7838	17	0	0	0	0	0	0	0
+       520	       512	      7856	    1	      0	         [Loop at line 131 in nmf_learn]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	7840	35	7875	28	0	0	0	0	0	0	0
+       521	         4	      8379	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       522	         4	      7389	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       523	         4	      7455	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       524	         4	      8318	    0	      0	                               nmf_learn	/s/chopin/k/grad/kriv/CS575/NMF/nmf	5568	4191	0	8	0	0	0	0	0	0	0
+       525	         3	      3747	    0	      0	                                    main	/s/chopin/k/grad/kriv/CS575/NMF/nmf	3152	998	0	4	0	0	0	0	0	0	0
+       526	       525	      3784	    1	      0	               [Loop at line 83 in main]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	3747	95	3879	34	0	0	0	0	0	0	0
+       527	         3	      3815	    0	      0	                                    main	/s/chopin/k/grad/kriv/CS575/NMF/nmf	3152	998	0	4	0	0	0	0	0	0	0
+       528	       205	     10344	    0	      0	                                get_data	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10272	290	0	38	0	0	0	0	0	0	0
+       529	       205	     10360	    0	      0	                                get_data	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10272	290	0	38	0	0	0	0	0	0	0
+       530	       210	     10378	    0	      0	                                get_data	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10272	290	0	38	0	0	0	0	0	0	0
+       531	       530	     10456	    1	      0	          [Loop at line 146 in get_data]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10456	86	10544	41	0	0	0	0	0	0	0
+       532	       531	     10493	    1	      0	          [Loop at line 154 in get_data]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10456	75	10531	40	0	0	0	0	0	0	0
+       533	       531	     10513	    1	      0	          [Loop at line 154 in get_data]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10456	75	10531	40	0	0	0	0	0	0	0
+       534	       210	     10513	    0	      0	                                get_data	/s/chopin/k/grad/kriv/CS575/NMF/nmf	10272	290	0	38	0	0	0	0	0	0	0
+       535	       203	     12240	    0	      0	                        compareMatricies	/s/chopin/k/grad/kriv/CS575/NMF/nmf	11792	890	0	35	0	0	0	0	0	0	0
+       536	       535	     12264	    1	      0	   [Loop at line 63 in compareMatricies]	/s/chopin/k/grad/kriv/CS575/NMF/nmf	12240	78	12318	43	0	0	0	0	0	0	0
+       537	       203	     12290	    0	      0	                        compareMatricies	/s/chopin/k/grad/kriv/CS575/NMF/nmf	11792	890	0	35	0	0	0	0	0	0	0
+       538	         2	    240894	    0	      1	                       __libc_start_main	/lib64/libc.so.6	240800	376	0	5	0	0	0	0	0	0	0
+       539	         2	    241028	    0	      1	                       __libc_start_main	/lib64/libc.so.6	240800	376	0	5	0	0	0	0	0	0	0
+       540	       196	    442264	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	434480	10834	0	44	0	0	0	0	0	0	0
+       541	       196	    442326	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	434480	10834	0	44	0	0	0	0	0	0	0
+       542	       200	    601512	    0	      1	                          _IO_file_write	/lib64/libc.so.6	601472	156	0	51	0	0	0	0	0	0	0
+       543	       200	    601516	    0	      1	                          _IO_file_write	/lib64/libc.so.6	601472	156	0	51	0	0	0	0	0	0	0
+       544	       211	    356267	    0	      1	                   ____strtod_l_internal	/lib64/libc.so.6	355888	8735	0	56	0	0	0	0	0	0	0
+       545	       211	    356596	    0	      1	                   ____strtod_l_internal	/lib64/libc.so.6	355888	8735	0	56	0	0	0	0	0	0	0
+       546	       215	    436928	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	434480	10834	0	44	0	0	0	0	0	0	0
+       547	       215	    436939	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	434480	10834	0	44	0	0	0	0	0	0	0
+       548	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	0	0	62	0	0	0	0	0	0	0

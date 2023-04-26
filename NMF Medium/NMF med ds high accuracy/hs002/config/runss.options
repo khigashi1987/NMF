@@ -1,0 +1,24 @@
+-r
+/s/chopin/k/grad/kriv/intel/advixe/projects/NMF Medium/e000/hs002
+--mrte-mode=auto
+--follow-child
+--return-app-exitcode
+--strategy=ld-linux.so.2:notrace:notrace,ld-linux-x86-64.so.2:notrace:notrace
+--interval=10
+--data-limit-mb=500
+--stack-stitching
+--itt-config=frame,task,event,counter,model
+--stackwalk=offline
+--mrte-type=java,python
+--type=cpu:stack
+--opencl-trace-mode=default
+--app-working-dir=/s/chopin/k/grad/kriv/CS575/NMF
+--
+/s/chopin/k/grad/kriv/CS575/NMF/nmf
+-N
+6
+-I
+10000
+-T
+5
+./test_data/med_data.dat

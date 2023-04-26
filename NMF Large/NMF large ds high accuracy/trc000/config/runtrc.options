@@ -1,0 +1,22 @@
+-r
+/s/chopin/k/grad/kriv/intel/advixe/projects/NMF Large/e000/trc000
+--return-app-exitcode
+--cs-mode=count-loops,count-flops,stl-profiling,stack-stitching
+--count-flops
+--benchmarks=dram,mcdram,cpu_cache,flop_peak,int
+--cs-file=/s/chopin/k/grad/kriv/intel/advixe/projects/NMF Large/e000/callstacks.def
+--jit-profiling
+--enable-cache-simulation
+--cache-config=10:48k:12w/1280k:10w/1:25600k:10w
+--gpu-carm
+--target-gpu=0:0:2.0
+--app-working-dir=/s/chopin/k/grad/kriv/CS575/NMF
+--
+/s/chopin/k/grad/kriv/CS575/NMF/nmf
+-N
+10
+-I
+10000
+-T
+15
+./test_data/large_data.dat

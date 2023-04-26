@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="79"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="5.699995E-01"
+           trip_counts="1"
+           func_instance="11"
+           priority="0"/>
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="109"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="1.399946E-01"
+           total_time="1.699985E-01"
+           trip_counts="3"
+           func_instance="18"
+           priority="0"/>
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="108"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.699985E-01"
+           trip_counts="1000"
+           func_instance="19"
+           priority="0"/>
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="82"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="9.997680E-03"
+           total_time="1.599741E-01"
+           trip_counts="1000"
+           func_instance="16"
+           priority="0"/>
+  <hotspot filename="/s/chopin/k/grad/kriv/CS575/NMF/learn.c"
+           line_no="83"
+           routine="nmf_learn"
+           is_vectorized="0"
+           self_time="8.998572E-02"
+           total_time="1.499764E-01"
+           trip_counts="3"
+           func_instance="15"
+           priority="0"/>
+</IntelParallelAdvisorSummary >
