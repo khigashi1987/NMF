@@ -20,7 +20,7 @@ void compareMatricies(char* originalFile, char* WFile, char* HFile, float thresh
     originalData = feature_matrix(originalFile);
     hData = feature_matrix(HFile);
     wData = feature_matrix(WFile);
-    
+
     int rowFirst = wData.n_rows;
     int columnFirst = wData.n_cols;
     // Looks like columns and rows are fliped in h, so invert them
@@ -74,7 +74,7 @@ void compareMatricies(char* originalFile, char* WFile, char* HFile, float thresh
 
     // First check if WH and originalData are the same size - this should be the same!
     if(n_rows != originalData.n_rows || n_cols != originalData.n_cols){
-        fprintf(stderr,"Error: WH and originalData are not the same size");
+        fprintf(stderr,"Error: WH and originalData are not the same size\n");
 
     // Now check if the two matricies are within a certain threshold of each other
     }else{
@@ -82,7 +82,7 @@ void compareMatricies(char* originalFile, char* WFile, char* HFile, float thresh
         for(i = 0;i < n_rows;i++){
             for(j = 0;j < n_cols;j++){
                 // if the absolute difference between the two values is greater than 0.05, then they are not the same
-                if(fabs(WH[i][j] - originalData.matrix[i][j]) > threshold){    
+                if(fabs(WH[i][j] - originalData.matrix[i][j]) > threshold){
                     //print row and column that is different
                     printf("WH[%d][%d] = %f, originalData[%d][%d] = %f \n",i,j,WH[i][j],i,j,originalData.matrix[i][j]);
                     same = 0;
@@ -93,9 +93,9 @@ void compareMatricies(char* originalFile, char* WFile, char* HFile, float thresh
             }
         }
         if(same){
-            printf("WH and originalData are the same");
+            printf("WH and originalData are the same\n");
         }else{
-            printf("WH and originalData are not the same");
+            printf("WH and originalData are not the same\n");
         }
     }
 }
